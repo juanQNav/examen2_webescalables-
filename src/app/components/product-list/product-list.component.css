@@ -44,9 +44,32 @@
     height: 500px;
   }
   .card-body{
-    padding: auto;
+    display: flex;
+  flex-direction: column; 
+  height: 100%; 
   }
-
+  .card-text {
+    font-size: 0.8em; 
+  }
+  
+  .card-text span {
+    color: gold; 
+    font-size: 1.5em;
+  }
+  
+  .card-text span ng-template {
+    color: gray; 
+  }
+  .box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  button{
+      margin-top: auto;
+  }
 
   /* .card-img-top {
     height: 200px; 

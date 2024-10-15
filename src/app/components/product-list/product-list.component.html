@@ -5,12 +5,23 @@
         <div class="card">
           <img [src]="product.image" class="card-img-top" alt="{{ product.title }}" />
           <div class="card-body">
-            <h5 class="card-title">{{ product.title }}</h5>
-            <p class="card-text">Precio: ${{ product.price }}</p>
+            <div class="box">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">Precio: ${{ product.price }}</p>
+              <p class="card-text">Categoría: {{ product.category }}</p>
+              <p class="card-text">Calificación: 
+                <span *ngFor="let star of [].constructor(5); let i = index">
+                  <ng-container *ngIf="i < product.rating.rate; else emptyStar">
+                    ★
+                  </ng-container>
+                  <ng-template #emptyStar>☆</ng-template>
+                </span>
+                ({{ product.rating.count }} opiniones)
+              </p>
+            </div>
             <button class="btn btn-primary" (click)="viewDetails(product.id)">Ver Detalles</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  

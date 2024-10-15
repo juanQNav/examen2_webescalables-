@@ -8,7 +8,16 @@
         <p class="text-muted">Categoría: {{ product.category }}</p>
         <h4>Precio: ${{ product.price }}</h4>
         <p>{{ product.description }}</p>
-        <button class="btn btn-secondary" (click)="goBack()">Volver a la lista</button> <!-- Aquí -->
+        <p class="card-text">Calificación: 
+          <span *ngFor="let star of [].constructor(5); let i = index">
+            <ng-container *ngIf="i < product.rating.rate; else emptyStar">
+              ★
+            </ng-container>
+            <ng-template #emptyStar>☆</ng-template>
+          </span>
+          ({{ product.rating.count }} opiniones)
+        </p>
+        <button class="btn btn-secondary" (click)="goBack()">Volver a la lista</button>
       </div>
     </div>
   </div>
